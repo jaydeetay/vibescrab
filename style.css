@@ -1,0 +1,180 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the start for scrollability */
+    min-height: 100vh;
+    padding-top: 20px; /* Add some padding at the top */
+}
+
+.game-container {
+    width: 90%;
+    max-width: 1200px;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+header h1 {
+    margin: 0;
+    color: #2a6092;
+}
+
+.main-content {
+    display: flex;
+    gap: 20px;
+}
+
+.board-container {
+    flex-grow: 3; /* Board takes more space */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center the board table */
+}
+
+#game-board {
+    border-collapse: collapse;
+    border: 2px solid #333;
+    margin-top: 10px; /* Space between h2 and board */
+}
+
+#game-board td {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #ccc;
+    text-align: center;
+    vertical-align: middle;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: #f9f9f9; /* Light background for cells */
+    /* Add transitions for tile placement later */
+}
+
+/* Example special squares (more can be added in JS) */
+#game-board .double-letter { background-color: #add8e6; } /* Light Blue */
+#game-board .triple-letter { background-color: #4682b4; color: white; } /* Steel Blue */
+#game-board .double-word { background-color: #ffcccb; } /* Light Pink */
+#game-board .triple-word { background-color: #ff6347; color: white; } /* Tomato Red */
+#game-board .start-square { background-color: #ffdab9; } /* Peach Puff - for center */
+
+
+.sidebar {
+    flex-grow: 1; /* Sidebar takes less space */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.player-info, .tile-rack, .game-controls {
+    background-color: #e9e9e9;
+    padding: 15px;
+    border-radius: 5px;
+}
+
+.player-info h2, .tile-rack h2, .game-controls h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    color: #333;
+    font-size: 1.2em;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 5px;
+}
+
+.player-info div {
+    margin-bottom: 5px;
+}
+
+.tiles {
+    display: flex;
+    flex-wrap: wrap; /* Allow tiles to wrap if not enough space */
+    gap: 5px; /* Space between tiles */
+    min-height: 50px; /* Ensure rack is visible even if empty */
+    padding: 5px;
+    background-color: #d3d3d3; /* Light grey background for the rack area */
+    border-radius: 3px;
+}
+
+.tile {
+    width: 35px;
+    height: 35px;
+    background-color: #f0e68c; /* Khaki - typical tile color */
+    border: 1px solid #c0b05c;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: grab; /* Indicate tiles are draggable */
+    position: relative; /* For letter value */
+}
+
+.tile .letter-value {
+    position: absolute;
+    bottom: 2px;
+    right: 3px;
+    font-size: 10px;
+    font-weight: normal;
+}
+
+.game-controls button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #5cb85c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+.game-controls button:hover {
+    background-color: #4cae4c;
+}
+
+.game-controls button:last-child {
+    margin-bottom: 0; /* Remove margin for the last button */
+}
+
+.game-controls button#reset-game {
+    background-color: #d9534f; /* Red for reset/danger action */
+}
+
+.game-controls button#reset-game:hover {
+    background-color: #c9302c;
+}
+
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #eee;
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Basic Drag and Drop Styling (can be enhanced with JS) */
+.dragging {
+    opacity: 0.5;
+    transform: scale(1.1); /* Make tile slightly bigger when dragging */
+}
+
+.droppable-hover {
+    background-color: #e0ffe0 !important; /* Light green when hovering over a valid drop target */
+}
